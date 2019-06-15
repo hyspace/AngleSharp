@@ -35,6 +35,7 @@
     <EmbeddedResource Include="Pages\*.*" />
     <EmbeddedResource Include="Resources\*.bin" />
     <EmbeddedResource Include="Html\*.txt" />
+    <EmbeddedResource Include="Urls\*.json" />
   </ItemGroup>
 
   <ItemGroup>
