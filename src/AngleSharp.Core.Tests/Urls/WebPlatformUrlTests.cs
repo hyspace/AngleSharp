@@ -1,12 +1,8 @@
 namespace AngleSharp.Core.Tests.Urls
 {
-    using AngleSharp.Dom;
-    using Microsoft.VisualStudio.TestPlatform.Utilities;
     using Newtonsoft.Json.Linq;
     using NUnit.Framework;
-    using System;
     using System.Collections;
-
 
     public class UrlTestFixture
     {
@@ -50,6 +46,7 @@ namespace AngleSharp.Core.Tests.Urls
             if (_test.Failure)
             {
                 Assert.IsTrue(url.IsInvalid, string.Format(FailureMessage, _test.Input, _test.Base, "Failure"));
+                Assert.Pass(string.Format("{0}\nResult: {1}", string.Format(FailureMessage, _test.Input, _test.Base, "Failure"), url.IsInvalid));
             }
             else
             {
@@ -64,6 +61,7 @@ namespace AngleSharp.Core.Tests.Urls
                 if (_test.Pathname != null) Assert.AreEqual(_test.Pathname, string.IsNullOrEmpty(url.Path) ? "/" : url.Path, string.Format(FailureMessage, _test.Input, _test.Base, "Path"));
                 if (_test.Search != null) Assert.AreEqual(_test.Search, url.Query ?? string.Empty, string.Format(FailureMessage, _test.Input, _test.Base, "Search"));
                 if (_test.Hash != null) Assert.AreEqual(_test.Hash, url.Fragment ?? string.Empty, string.Format(FailureMessage, _test.Input, _test.Base, "Hash"));
+                Assert.Pass(string.Format("{0}\nResult: {1}", string.Format(FailureMessage, _test.Input, _test.Base, "Href"), url.Href));
             }
         }
     }
